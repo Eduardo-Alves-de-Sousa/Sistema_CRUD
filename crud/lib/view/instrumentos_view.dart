@@ -19,13 +19,13 @@ class InstrumentosView {
 
       if (escolha == null) {
         print("Escolha inválida, tente novamente.");
-        continue;
+        return;
       }
 
       var escolhaNumero = int.tryParse(escolha);
       if (escolhaNumero == null) {
         print("Escolha inválida, tente novamente.");
-        continue;
+        return;
       }
 
       switch (escolhaNumero) {

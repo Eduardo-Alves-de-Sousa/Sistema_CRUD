@@ -21,14 +21,14 @@ class RepertorioView {
       if (escolha == null) {
         // Tratamento de escolha inválida
         print("Escolha inválida, tente novamente.");
-        continue;
+        return;
       }
 
       var escolhaNumero = int.tryParse(escolha);
       if (escolhaNumero == null) {
         // Tratamento de escolha inválida
         print("Escolha inválida, tente novamente.");
-        continue;
+        return;
       }
 
       switch (escolhaNumero) {
