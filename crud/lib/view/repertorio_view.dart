@@ -1,10 +1,10 @@
 import 'dart:io';
-import 'package:crud/controller/repertorio_controller.dart';
+import 'package:crud/controller/banda_sinfonica_controller.dart';
 
 class RepertorioView {
-  final RepertorioController repertorioController;
+  final BandaSinfonicaController bandaController;
 
-  RepertorioView(this.repertorioController);
+  RepertorioView(this.bandaController);
 
   void exibirMenuRepertorio() {
     while (true) {
@@ -15,7 +15,7 @@ class RepertorioView {
       print("3 - Atualizar Música no Repertório");
       print("4 - Excluir Música do Repertório");
       print("5 - Voltar ao menu principal\n");
-
+      stdout.write("Escolha uma opção: ");
       var escolha = stdin.readLineSync();
 
       if (escolha == null) {
@@ -38,11 +38,11 @@ class RepertorioView {
           var titulo = stdin.readLineSync();
           print("Compositor: ");
           var compositor = stdin.readLineSync();
-          repertorioController.adicionarRepertorio(titulo!, compositor!);
+          bandaController.adicionarRepertorio(titulo!, compositor!);
           break;
         case 2:
           // Listar o Repertório
-          repertorioController.listarRepertorio();
+          bandaController.listarRepertorio();
           break;
         case 3:
           // Atualizar uma música no Repertório
@@ -50,13 +50,13 @@ class RepertorioView {
           var titulo = stdin.readLineSync();
           print("Novo compositor: ");
           var novoCompositor = stdin.readLineSync();
-          repertorioController.atualizarRepertorio(titulo!, novoCompositor!);
+          bandaController.atualizarRepertorio(titulo!, novoCompositor!);
           break;
         case 4:
           // Excluir uma música do Repertório
           print("Título da música a ser excluída: ");
           var titulo = stdin.readLineSync();
-          repertorioController.excluirRepertorio(titulo!);
+          bandaController.excluirRepertorio(titulo!);
           break;
         case 5:
           // Retornar ao menu principal

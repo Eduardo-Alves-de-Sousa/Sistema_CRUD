@@ -1,7 +1,4 @@
 import 'dart:io';
-import 'package:crud/controller/concerto_controller.dart';
-import 'package:crud/controller/instrumento_controller.dart';
-import 'package:crud/controller/repertorio_controller.dart';
 import 'package:crud/exceptions/exceptions_banda.dart';
 import 'package:crud/controller/banda_sinfonica_controller.dart';
 import 'package:crud/view/concertos_view.dart';
@@ -15,14 +12,13 @@ void main() {
 
   // Cria instâncias das visualizações associadas à BandaSinfonicaController
   final membrosView = MembrosView(bandaController);
-  final instrumentosView =
-      InstrumentosView(bandaController as InstrumentoController);
-  final repertorioView =
-      RepertorioView(bandaController as RepertorioController);
-  final concertosView = ConcertosView(bandaController as ConcertoController);
+  final instrumentosView = InstrumentosView(bandaController);
+  final repertorioView = RepertorioView(bandaController);
+  final concertosView = ConcertosView(bandaController);
 
-  print("Sistema de Gerenciamento de Banda Sinfônica");
-  print("*-------------------------------------------*");
+  print("|-------------------------------------------|");
+  print("|Sistema de Gerenciamento de Banda Sinfônica|");
+  print("|-------------------------------------------|");
 
   while (true) {
     print("\nEscolha uma ação:");
@@ -32,6 +28,7 @@ void main() {
     print("4 - Gerenciar Concertos");
     print("5 - Sair\n");
     stdout.write("Escolha uma opção: ");
+
     var escolha = stdin.readLineSync();
 
     if (escolha == null) {

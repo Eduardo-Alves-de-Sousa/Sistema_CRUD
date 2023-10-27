@@ -14,7 +14,7 @@ class MembrosView {
       print("3 - Atualizar Membro");
       print("4 - Excluir Membro");
       print("5 - Voltar ao menu principal\n");
-
+      stdout.write("Escolha uma opção: ");
       var escolha = stdin.readLineSync();
       // Tratamento de escolha inválida
       if (escolha == null) {

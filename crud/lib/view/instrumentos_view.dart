@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:crud/controller/instrumento_controller.dart';
+import 'package:crud/controller/banda_sinfonica_controller.dart';
 
 class InstrumentosView {
-  final InstrumentoController bandaController;
+  final BandaSinfonicaController bandaController;
 
   InstrumentosView(this.bandaController);
 
@@ -14,7 +14,7 @@ class InstrumentosView {
       print("3 - Atualizar Instrumento");
       print("4 - Excluir Instrumento");
       print("5 - Voltar ao menu principal\n");
-
+      stdout.write("Escolha uma opção: ");
       var escolha = stdin.readLineSync();
 
       if (escolha == null) {
