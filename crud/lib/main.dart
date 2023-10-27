@@ -33,40 +33,44 @@ void main() {
     if (escolha == null) {
       // Tratamento de escolha inválida
       print("Escolha inválida, tente novamente.");
-      return;
+      continue; // Continue o loop para permitir outra tentativa.
     }
 
     var escolhaNumero = int.tryParse(escolha);
     if (escolhaNumero == null) {
       // Tratamento de escolha inválida
       print("Escolha inválida, tente novamente.");
-      return;
+      continue; // Continue o loop para permitir outra tentativa.
     }
 
-    switch (escolhaNumero) {
-      case 1:
-        // Chama o menu de gerenciamento de membros
-        membrosView.exibirMenuMembros();
-        break;
-      case 2:
-        // Chama o menu de gerenciamento de instrumentos
-        instrumentosView.exibirMenuInstrumentos();
-        break;
-      case 3:
-        // Chama o menu de gerenciamento de repertório
-        repertorioView.exibirMenuRepertorio();
-        break;
-      case 4:
-        // Chama o menu de gerenciamento de concertos
-        concertosView.exibirMenuConcertos();
-        break;
-      case 5:
-        // Encerra o programa
-        print("Saindo...\n");
-        return;
-      default:
-        // Tratamento de escolha inválida
-        print("Escolha inválida, tente novamente.\n");
+    try {
+      switch (escolhaNumero) {
+        case 1:
+          // Chama o menu de gerenciamento de membros
+          membrosView.exibirMenuMembros();
+          break;
+        case 2:
+          // Chama o menu de gerenciamento de instrumentos
+          instrumentosView.exibirMenuInstrumentos();
+          break;
+        case 3:
+          // Chama o menu de gerenciamento de repertório
+          repertorioView.exibirMenuRepertorio();
+          break;
+        case 4:
+          // Chama o menu de gerenciamento de concertos
+          concertosView.exibirMenuConcertos();
+          break;
+        case 5:
+          // Encerra o programa
+          print("Saindo...\n");
+          return;
+        default:
+          // Tratamento de escolha inválida
+          print("Escolha inválida, tente novamente.\n");
+      }
+    } catch (e) {
+      print("Ocorreu uma exceção: $e");
     }
   }
 }
