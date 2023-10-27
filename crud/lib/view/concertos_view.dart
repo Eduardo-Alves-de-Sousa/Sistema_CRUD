@@ -1,11 +1,11 @@
 import 'dart:io';
-import 'package:crud/controller/banda_sinfonica_controller.dart';
+import 'package:crud/controller/concerto_controller.dart';
 import 'package:crud/model/repertorio.dart';
 
 class ConcertosView {
-  final BandaSinfonicaController bandaController;
+  final ConcertoController concertoController;
 
-  ConcertosView(this.bandaController);
+  ConcertosView(this.concertoController);
 
   void exibirMenuConcertos() {
     while (true) {
@@ -45,10 +45,10 @@ class ConcertosView {
             var compositor = stdin.readLineSync();
             repertorio.add(Repertorio(titulo!, compositor!));
           }
-          bandaController.adicionarConcerto(local!, data!, repertorio);
+          concertoController.adicionarConcerto(local!, data!, repertorio);
           break;
         case 2:
-          bandaController.listarConcertos();
+          concertoController.listarConcertos();
           break;
         case 3:
           print("Local do concerto a ser atualizado: ");
@@ -68,7 +68,7 @@ class ConcertosView {
             var compositor = stdin.readLineSync();
             novoRepertorio.add(Repertorio(titulo!, compositor!));
           }
-          bandaController.atualizarConcerto(
+          concertoController.atualizarConcerto(
               local!, data!, novoLocal!, novoRepertorio);
           break;
         case 4:
@@ -76,7 +76,7 @@ class ConcertosView {
           var local = stdin.readLineSync();
           print("Data do concerto a ser excluído: ");
           var data = stdin.readLineSync();
-          bandaController.excluirConcerto(local!, data!);
+          concertoController.excluirConcerto(local!, data!);
           break;
         case 5:
           return;

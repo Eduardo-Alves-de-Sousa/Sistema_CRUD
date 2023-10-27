@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:crud/controller/banda_sinfonica_controller.dart';
+import 'package:crud/controller/instrumento_controller.dart';
 
 class InstrumentosView {
-  final BandaSinfonicaController bandaController;
+  final InstrumentoController bandaController;
 
   InstrumentosView(this.bandaController);
 
