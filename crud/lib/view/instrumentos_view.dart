@@ -13,7 +13,7 @@ class InstrumentosView {
       print("2 - Listar Instrumentos");
       print("3 - Atualizar Instrumento");
       print("4 - Excluir Instrumento");
-      print("5 - Voltar ao menu principal");
+      print("5 - Voltar ao menu principal\n");
 
       var escolha = stdin.readLineSync();
 

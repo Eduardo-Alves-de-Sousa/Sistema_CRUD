@@ -14,7 +14,7 @@ class ConcertosView {
       print("2 - Listar Concertos");
       print("3 - Atualizar Concerto");
       print("4 - Excluir Concerto");
-      print("5 - Voltar ao menu principal");
+      print("5 - Voltar ao menu principal\n");
 
       var escolha = stdin.readLineSync();
 

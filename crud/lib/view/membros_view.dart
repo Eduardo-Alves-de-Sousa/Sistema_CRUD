@@ -13,15 +13,15 @@ class MembrosView {
       print("2 - Listar Membros");
       print("3 - Atualizar Membro");
       print("4 - Excluir Membro");
-      print("5 - Voltar ao menu principal");
+      print("5 - Voltar ao menu principal\n");
 
       var escolha = stdin.readLineSync();
-
+      // Tratamento de escolha inválida
       if (escolha == null) {
         print("Escolha inválida, tente novamente.");
         continue;
       }
-
+      // Tratamento de escolha inválida
       var escolhaNumero = int.tryParse(escolha);
       if (escolhaNumero == null) {
         print("Escolha inválida, tente novamente.");

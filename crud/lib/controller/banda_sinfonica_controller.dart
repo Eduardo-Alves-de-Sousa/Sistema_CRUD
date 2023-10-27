@@ -9,6 +9,7 @@ class BandaSinfonicaController {
   List<Repertorio> repertorio = [];
   List<Concerto> concertos = [];
 
+  // Métodos para gerenciar membros da banda
   void adicionarMembro(String nome, String papel) {
     membros.add(MembroBanda(nome, papel));
   }
@@ -25,11 +26,11 @@ class BandaSinfonicaController {
 
   void listarMembros() {
     for (var membro in membros) {
-      // ignore: avoid_print
       print("Nome: ${membro.nome}, Papel: ${membro.papel}");
     }
   }
 
+  // Métodos para gerenciar instrumentos
   void adicionarInstrumento(String nome) {
     instrumentos.add(Instrumento(nome));
   }
@@ -46,11 +47,11 @@ class BandaSinfonicaController {
 
   void listarInstrumentos() {
     for (var instrumento in instrumentos) {
-      // ignore: avoid_print
       print("Instrumento: ${instrumento.nome}");
     }
   }
 
+  // Métodos para gerenciar repertório
   void adicionarRepertorio(String titulo, String compositor) {
     repertorio.add(Repertorio(titulo, compositor));
   }
@@ -67,33 +68,25 @@ class BandaSinfonicaController {
 
   void listarRepertorio() {
     for (var musica in repertorio) {
-      // ignore: avoid_print
       print("Título: ${musica.titulo}, Compositor: ${musica.compositor}");
     }
   }
 
+  // Métodos para gerenciar concertos
   void adicionarConcerto(
       String local, String data, List<Repertorio> repertorio) {
-    // Verificar se já existe um concerto com o mesmo local e data
-    var concertoExistenteIndex =
-        concertos.indexWhere((c) => c.local == local && c.data == data);
-
-    if (concertoExistenteIndex != -1) {
-      // Se já existe um concerto com o mesmo local e data, atualizamos seu repertório
-      concertos[concertoExistenteIndex].repertorio = repertorio;
-    } else {
-      // Caso contrário, adicionamos um novo concerto
-      concertos.add(Concerto(local, data, repertorio));
-    }
+    concertos.add(Concerto(local, data, repertorio));
   }
 
   void atualizarConcerto(String local, String data, String novoLocal,
       List<Repertorio> novoRepertorio) {
-    var concerto = concertos.firstWhere(
-        (c) => c.local == local && c.data == data,
-        orElse: () => Concerto(local, data, []));
-    concerto.local = novoLocal;
-    concerto.repertorio = novoRepertorio;
+    final concertoIndex =
+        concertos.indexWhere((c) => c.local == local && c.data == data);
+
+    if (concertoIndex != -1) {
+      concertos[concertoIndex].local = novoLocal;
+      concertos[concertoIndex].repertorio = novoRepertorio;
+    }
   }
 
   void excluirConcerto(String local, String data) {
@@ -102,12 +95,9 @@ class BandaSinfonicaController {
 
   void listarConcertos() {
     for (var concerto in concertos) {
-      // ignore: avoid_print
       print("Local: ${concerto.local}, Data: ${concerto.data}");
-      // ignore: avoid_print
       print("Repertório:");
       for (var musica in concerto.repertorio) {
-        // ignore: avoid_print
         print(" - Título: ${musica.titulo}, Compositor: ${musica.compositor}");
       }
     }
